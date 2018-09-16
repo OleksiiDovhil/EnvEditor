@@ -8,7 +8,7 @@ namespace EnvEditor\Core\Disks\Requests;
  * @property string $alias
  * @property string $driver
  */
-class CreateDiskRequest
+final class CreateDiskRequest
 {
     /**
      * CreateDiskRequest constructor.

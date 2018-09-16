@@ -8,7 +8,7 @@ namespace EnvEditor\Core\Disks\Requests;
  * @property int $limit
  * @property int $offset
  */
-class GetDisksRequest
+final class GetDisksRequest
 {
     /**
      * GetDisksRequest constructor.

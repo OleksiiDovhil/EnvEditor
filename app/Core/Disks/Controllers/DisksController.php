@@ -12,9 +12,8 @@ use EnvEditor\Core\Disks\Requests\GetDisksRequest;
 
 /**
  * Class DisksController
- * @package EnvEditor\Core\Disks\Controllers
  */
-class DisksController
+final class DisksController
 {
     /**
      * @var Disks
