@@ -3,7 +3,6 @@ declare(strict_types=1);
 
 namespace EnvEditor\Core\Disks\Entities;
 
-use EnvEditor\Core\Entities\Config;
 use EnvEditor\Core\Entities\Entity;
 
 /**
@@ -16,16 +15,10 @@ use EnvEditor\Core\Entities\Entity;
  */
 final class Disk extends Entity
 {
-    /**
-     * @return array
-     */
-    protected function getCasts(): array
-    {
-        return [
-            'id' => ['int'],
-            'alias' => ['string'],
-            'driver' => ['string'],
-            'config' => [Config::class]
-        ];
-    }
+    protected const CASTS = [
+        'id' => ['int', 'null'],
+        'alias' => ['string'],
+        'driver' => ['string'],
+        'config' => [Config::class]
+    ];
 }

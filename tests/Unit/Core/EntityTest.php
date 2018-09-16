@@ -1,10 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace Tests\Unit;
+namespace Tests\Unit\Core;
 
 use EnvEditor\Core\Entities\Entity;
-use EnvEditor\Core\Entities\Exceptions\CastDidntSetException;
 use EnvEditor\Core\Entities\Exceptions\PropertyDoesntExistsInEntityException;
 use EnvEditor\Core\Entities\Exceptions\WrongEntityTypeReturnedError;
 use EnvEditor\Core\Entities\Exceptions\WrongEntityTypeToBeSetError;
@@ -12,7 +11,7 @@ use Tests\TestCase;
 
 /**
  * Class EntityTest
- * @package Tests\Unit
+ * @covers \EnvEditor\Core\Entities\Entity
  */
 class EntityTest extends TestCase
 {
@@ -60,15 +59,6 @@ class EntityTest extends TestCase
     /**
      * @return void
      */
-    public function testEntityExtendedWituoutOverloadingCastsConst(): void
-    {
-        $this->expectException(CastDidntSetException::class);
-        $this->getEntity();
-    }
-
-    /**
-     * @return void
-     */
     public function testSupportedTypesFilledWithoutError(): void
     {
         $entity = $this->getEntity(['null', 'string']);
@@ -109,7 +99,6 @@ class EntityTest extends TestCase
             /**
              *  constructor.
              * @param array $rules
-             * @throws \EnvEditor\Core\Entities\Exceptions\CastDidntSetException
              */
             public function __construct(?array $rules = null)
             {
@@ -120,7 +109,7 @@ class EntityTest extends TestCase
             /**
              * @return array|null
              */
-            protected function getCasts(): ?array
+            public function getCasts(): ?array
             {
                 return $this->testCaseRules;
             }

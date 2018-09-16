@@ -1,26 +1,26 @@
 <?php
 declare(strict_types=1);
 
-namespace EnvEditor\Core\Disks\Repositories;
+namespace EnvEditor\Core\Disks\DataAccess;
 
 use EnvEditor\Core\Disks\Entities\Disk;
 
 /**
- * Class DiskRepository
+ * Class Disks
  */
-interface DiskRepository
+interface Disks
 {
     /**
      * @param int $diskId
-     * @return Disk
+     * @return Disk|null
      */
-    public function find(int $diskId): Disk;
+    public function find(int $diskId): ?Disk;
 
     /**
      * @param Disk $disk
      * @return void
      */
-    public function create(Disk $disk): void;
+    public function insert(Disk $disk): void;
 
     /**
      * @param int $diskId

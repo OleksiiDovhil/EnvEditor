@@ -3,7 +3,6 @@ declare(strict_types=1);
 
 namespace EnvEditor\Core\Entities;
 
-use EnvEditor\Core\Entities\Exceptions\CastDidntSetException;
 use EnvEditor\Core\Entities\Exceptions\PropertyDoesntExistsInEntityException;
 use EnvEditor\Core\Entities\Exceptions\WrongEntityTypeReturnedError;
 use EnvEditor\Core\Entities\Exceptions\WrongEntityTypeToBeSetError;
@@ -37,16 +36,11 @@ abstract class Entity
     private $dataContainer = [];
 
     /**
-     * Entity constructor.
-     * @throws CastDidntSetException
+     * Entity constructor
      */
     public function __construct()
     {
-        $casts = $this->getCasts();
-        if (empty($casts)) {
-            throw new CastDidntSetException($this);
-        }
-        $this->entityCastsRules = $casts;
+        $this->entityCastsRules = $this->getCasts();
     }
 
     /**
@@ -97,9 +91,9 @@ abstract class Entity
     /**
      * @return array|null
      */
-    protected function getCasts(): ?array
+    public function getCasts(): ?array
     {
-        return self::CASTS;
+        return static::CASTS;
     }
 
     /**

@@ -1,13 +1,13 @@
 <?php
 declare(strict_types=1);
 
-namespace EnvEditor\Laravel\Disks\UseCases;
+namespace EnvEditor\Laravel\Disks\Adapters\UseCases;
 
-use EnvEditor\Core\Disks\UseCases\DiskDriver;
-use EnvEditor\Core\Entities\Config;
+use EnvEditor\Core\DiskDrivers\UseCases\DiskDriver;
+use EnvEditor\Core\Disks\Entities\Config;
 use EnvEditor\Core\Entities\File;
 use EnvEditor\Exceptions\WrongConfigInDriverException;
-use EnvEditor\Laravel\Disks\Entities\LocalConfig;
+use EnvEditor\Laravel\Disks\Adapters\Entities\LocalConfig;
 
 class LocalDiskDriver implements DiskDriver
 {

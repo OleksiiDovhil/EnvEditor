@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace EnvEditor\Core\Disks\UseCases;
+namespace EnvEditor\Core\DiskDrivers\UseCases;
 
-use EnvEditor\Core\Entities\Config;
+use EnvEditor\Core\Disks\Entities\Config;
 use EnvEditor\Core\Entities\File;
 
 /**
